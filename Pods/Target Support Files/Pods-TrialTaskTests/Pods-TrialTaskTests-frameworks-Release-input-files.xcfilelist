@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-TrialTaskTests/Pods-TrialTaskTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/KIF/KIF.framework
+${BUILT_PRODUCTS_DIR}/LayoutTest/LayoutTest.framework
+${BUILT_PRODUCTS_DIR}/LayoutTestBase/LayoutTestBase.framework

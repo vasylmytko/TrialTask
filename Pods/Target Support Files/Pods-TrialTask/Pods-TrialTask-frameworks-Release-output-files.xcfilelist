@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LayoutTest.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LayoutTestBase.framework

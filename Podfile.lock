@@ -1,0 +1,60 @@
+PODS:
+  - KIF (3.7.7):
+    - KIF/Core (= 3.7.7)
+  - KIF/Core (3.7.7)
+  - LayoutTest/Swift (4.0.2):
+    - LayoutTest/SwiftSubspec
+    - LayoutTest/TestCase
+    - LayoutTestBase (= 4.0.2)
+    - LayoutTestBase/Autolayout
+    - LayoutTestBase/Catalog
+    - LayoutTestBase/Config
+    - LayoutTestBase/Core
+    - LayoutTestBase/UIViewHelpers
+  - LayoutTest/SwiftSubspec (4.0.2):
+    - LayoutTest/TestCase
+    - LayoutTestBase (= 4.0.2)
+    - LayoutTestBase/Swift
+  - LayoutTest/TestCase (4.0.2):
+    - LayoutTestBase (= 4.0.2)
+    - LayoutTestBase/Config
+    - LayoutTestBase/Core
+  - LayoutTestBase (4.0.2):
+    - LayoutTestBase/Autolayout (= 4.0.2)
+    - LayoutTestBase/Catalog (= 4.0.2)
+    - LayoutTestBase/Config (= 4.0.2)
+    - LayoutTestBase/Core (= 4.0.2)
+    - LayoutTestBase/UIViewHelpers (= 4.0.2)
+  - LayoutTestBase/Autolayout (4.0.2)
+  - LayoutTestBase/Catalog (4.0.2):
+    - LayoutTestBase/Core
+  - LayoutTestBase/Config (4.0.2)
+  - LayoutTestBase/Core (4.0.2):
+    - LayoutTestBase/Config
+  - LayoutTestBase/Swift (4.0.2):
+    - LayoutTestBase/Autolayout
+    - LayoutTestBase/Catalog
+    - LayoutTestBase/Config
+    - LayoutTestBase/Core
+    - LayoutTestBase/UIViewHelpers
+  - LayoutTestBase/UIViewHelpers (4.0.2):
+    - LayoutTestBase/Config
+
+DEPENDENCIES:
+  - KIF
+  - LayoutTest/Swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - KIF
+    - LayoutTest
+    - LayoutTestBase
+
+SPEC CHECKSUMS:
+  KIF: 6f525b18d4cca3d6445f3c5d683294e9157bd3f4
+  LayoutTest: 8b9afa6b192071edcaaab3838ba7f32a131b29d1
+  LayoutTestBase: 6b95edc3abbcf50c8a9c2492b032a5ca4aab9efb
+
+PODFILE CHECKSUM: 97e84f7616435000afb006bab6357e157671bef4
+
+COCOAPODS: 1.7.0
