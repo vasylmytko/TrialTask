@@ -16,13 +16,13 @@ protocol ChatPresenterDelegate: class {
 
 class ChatPresenter: NSObject {
     
-    weak var delegate: ChatPresenterDelegate?
+    private weak var delegate: ChatPresenterDelegate?
     
-    var fetchedResultsController: NSFetchedResultsController<MessageData>!
+    private var fetchedResultsController: NSFetchedResultsController<MessageData>!
     
-    var selectedUser: User!
+    private var selectedUser: User!
     
-    init(delegate: ChatPresenterDelegate, user: User) {
+    public init(delegate: ChatPresenterDelegate, user: User) {
         super.init()
         self.delegate = delegate
         self.selectedUser = user

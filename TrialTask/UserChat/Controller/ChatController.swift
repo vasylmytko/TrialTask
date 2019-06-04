@@ -25,7 +25,6 @@ class ChatController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         chatPresenter = ChatPresenter(delegate: self, user: selectedUser)
         
         chatPresenter.fetchMessages()
@@ -39,7 +38,7 @@ class ChatController: UIViewController {
         super.viewWillAppear(animated)
         title = selectedUser.name
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let item = messageData.count - 1
@@ -71,26 +70,15 @@ class ChatController: UIViewController {
             }
         }
     }
-    
-    private func estimatedFrameForText(_ text: String) -> CGRect {
-        let size = CGSize(width: 250, height: 1000)
-        let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], context: nil)
-    }
 }
 
 extension ChatController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "id", for: indexPath) as! MessageCell
-  
         cell.messageTextView.text = messageData[indexPath.item].text
-        
         cell.isIncoming = messageData[indexPath.item].receiver!.name == User.currentUser?.name
-        
         let messageText = messageData[indexPath.item].text
-        
-        cell.textViewWidthConstraint.constant = estimatedFrameForText(messageText!).width + 20
-        
+        cell.textViewWidthConstraint.constant = messageText!.estimatedFrame.width + 20
         return cell
     }
     
@@ -107,7 +95,7 @@ extension ChatController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let messageText = messageData[indexPath.item].text
-        let height = estimatedFrameForText(messageText!).height + 30
+        let height = messageText!.estimatedFrame.height + 30
         return CGSize(width: chatCollectionView.frame.width, height: height)
     }
     
