@@ -12,26 +12,38 @@ class UsersListController: UIViewController {
     
     weak var delegate: UserSelectionDelegate?
     
+    var presenter: UsersListPresenter!
+    
+    var users: [User] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter = UsersListPresenter(delegate: self)
+        presenter.fetchUsers()
+    }
+}
+
+extension UsersListController: UsersListPresenterDelegate {
+    func setUsers(_ users: [User]) {
+        self.users = users
     }
 }
 
 extension UsersListController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return users.count
+        return self.users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserCell
-        cell.updateUI(users[indexPath.item])
+        cell.updateUI(self.users[indexPath.item])
         return cell
     }
 }
 
 extension UsersListController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedUser = users[indexPath.item]
+        let selectedUser = self.users[indexPath.item]
         delegate?.userSelecter(selectedUser)
         
         if let detailVC = delegate as? ChatController {

@@ -9,11 +9,19 @@
 import Foundation
 
 protocol UsersListPresenterDelegate: class {
-    
+    func setUsers(_ users: [User])
 }
 
 class UsersListPresenter {
     weak var delegate: UsersListPresenterDelegate?
+    
+    init(delegate: UsersListPresenterDelegate) {
+        self.delegate = delegate
+    }
+    
+    func fetchUsers() {
+        delegate?.setUsers(users)
+    }
     
     
 }
