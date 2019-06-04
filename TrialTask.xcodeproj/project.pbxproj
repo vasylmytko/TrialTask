@@ -53,6 +53,7 @@
 		ACB57D7C216952D6001F175C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB57D7B216952D6001F175C /* SettingsController.swift */; };
 		ACB57D8121696A05001F175C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB57D8021696A05001F175C /* SignUpController.swift */; };
 		ACB5863422A69768002E519B /* UsersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5863322A69768002E519B /* UsersListPresenter.swift */; };
+		ACB5863622A69BFA002E519B /* ChatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5863522A69BFA002E519B /* ChatPresenter.swift */; };
 		ACD6B254216AB9290019D8AB /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6B253216AB9290019D8AB /* UIView+Animation.swift */; };
 		ACD6B256216ACF3A0019D8AB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6B255216ACF3A0019D8AB /* Message.swift */; };
 		ACD8E030229D344300EFA253 /* BaseLayoutTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD8E02F229D344300EFA253 /* BaseLayoutTestCase.swift */; };
@@ -135,6 +136,7 @@
 		ACB57D7B216952D6001F175C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		ACB57D8021696A05001F175C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		ACB5863322A69768002E519B /* UsersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListPresenter.swift; sourceTree = "<group>"; };
+		ACB5863522A69BFA002E519B /* ChatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPresenter.swift; sourceTree = "<group>"; };
 		ACD6B253216AB9290019D8AB /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		ACD6B255216ACF3A0019D8AB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ACD8E02F229D344300EFA253 /* BaseLayoutTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLayoutTestCase.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				ACB5863322A69768002E519B /* UsersListPresenter.swift */,
+				ACB5863522A69BFA002E519B /* ChatPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				AC2D23EC2167B64E00760777 /* UserCell.swift in Sources */,
 				AC2D23F02168203E00760777 /* MessageCell.swift in Sources */,
 				ACD6B254216AB9290019D8AB /* UIView+Animation.swift in Sources */,
+				ACB5863622A69BFA002E519B /* ChatPresenter.swift in Sources */,
 				AC2D23DD216795F400760777 /* UsersListController.swift in Sources */,
 				AC2926EE2166A35400895EC8 /* LoginController.swift in Sources */,
 				AC3FFDF7216C18A500E39201 /* UIImage+SaveToFile.swift in Sources */,

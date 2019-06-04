@@ -12,7 +12,7 @@ protocol UsersListPresenterDelegate: class {
     func setUsers(_ users: [User])
 }
 
-class UsersListPresenter {
+class UsersListPresenter: NSObject {
     weak var delegate: UsersListPresenterDelegate?
     
     init(delegate: UsersListPresenterDelegate) {
