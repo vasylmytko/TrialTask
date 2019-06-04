@@ -21,6 +21,10 @@ class TrialTaskUITests: XCTestCase {
         getBackToUsersList()
     }
     
+    func testSignUp() {
+        
+    }
+    
     func testGoToAllOfTabBarPages() {
         homePage.goToChatPage().goToSettingsPage()
     }

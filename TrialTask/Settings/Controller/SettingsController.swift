@@ -73,7 +73,6 @@ class SettingsController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
 }
 
 extension SettingsController: UITableViewDataSource, UITableViewDelegate {

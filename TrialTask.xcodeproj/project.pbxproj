@@ -48,8 +48,11 @@
 		AC741D6B22A148D50012B5D1 /* EditScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC741D6A22A148D50012B5D1 /* EditScreen.swift */; };
 		AC741D6D22A148ED0012B5D1 /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC741D6C22A148EC0012B5D1 /* AboutScreen.swift */; };
 		AC741D6F22A14E7D0012B5D1 /* SignUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC741D6E22A14E7D0012B5D1 /* SignUpScreen.swift */; };
+		ACAD7A3822A511F100AFB740 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD7A3722A511F100AFB740 /* HomePage.swift */; };
+		ACAD7A3A22A541AD00AFB740 /* LogInUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAD7A3922A541AD00AFB740 /* LogInUITests.swift */; };
 		ACB57D7C216952D6001F175C /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB57D7B216952D6001F175C /* SettingsController.swift */; };
 		ACB57D8121696A05001F175C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB57D8021696A05001F175C /* SignUpController.swift */; };
+		ACB5863422A69768002E519B /* UsersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB5863322A69768002E519B /* UsersListPresenter.swift */; };
 		ACD6B254216AB9290019D8AB /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6B253216AB9290019D8AB /* UIView+Animation.swift */; };
 		ACD6B256216ACF3A0019D8AB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD6B255216ACF3A0019D8AB /* Message.swift */; };
 		ACD8E030229D344300EFA253 /* BaseLayoutTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD8E02F229D344300EFA253 /* BaseLayoutTestCase.swift */; };
@@ -127,8 +130,11 @@
 		AC741D6A22A148D50012B5D1 /* EditScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScreen.swift; sourceTree = "<group>"; };
 		AC741D6C22A148EC0012B5D1 /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
 		AC741D6E22A14E7D0012B5D1 /* SignUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpScreen.swift; sourceTree = "<group>"; };
+		ACAD7A3722A511F100AFB740 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		ACAD7A3922A541AD00AFB740 /* LogInUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInUITests.swift; sourceTree = "<group>"; };
 		ACB57D7B216952D6001F175C /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		ACB57D8021696A05001F175C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		ACB5863322A69768002E519B /* UsersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListPresenter.swift; sourceTree = "<group>"; };
 		ACD6B253216AB9290019D8AB /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		ACD6B255216ACF3A0019D8AB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		ACD8E02F229D344300EFA253 /* BaseLayoutTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseLayoutTestCase.swift; sourceTree = "<group>"; };
@@ -228,6 +234,7 @@
 		AC2D23D921678E1E00760777 /* UserChat */ = {
 			isa = PBXGroup;
 			children = (
+				ACB5863222A6974A002E519B /* Presenter */,
 				AC2D23DF2167B13000760777 /* Controller */,
 				AC2D23DE2167B12B00760777 /* View */,
 			);
@@ -371,6 +378,7 @@
 				AC741D6A22A148D50012B5D1 /* EditScreen.swift */,
 				AC741D6C22A148EC0012B5D1 /* AboutScreen.swift */,
 				AC741D6E22A14E7D0012B5D1 /* SignUpScreen.swift */,
+				ACAD7A3722A511F100AFB740 /* HomePage.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -389,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				ACD8E040229D65C800EFA253 /* TrialTaskUITests.swift */,
+				ACAD7A3922A541AD00AFB740 /* LogInUITests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -401,6 +410,14 @@
 				AC34A8CE229FFB71002649FA /* KIFTestActor+tester.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ACB5863222A6974A002E519B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				ACB5863322A69768002E519B /* UsersListPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		ACD6B252216AB9040019D8AB /* Extensions */ = {
@@ -644,6 +661,7 @@
 				AC3FFDF3216BEAEF00E39201 /* User+CoreDataProperties.swift in Sources */,
 				AC3FFDF1216BEAEF00E39201 /* Message+CoreDataProperties.swift in Sources */,
 				ACB57D8121696A05001F175C /* SignUpController.swift in Sources */,
+				ACB5863422A69768002E519B /* UsersListPresenter.swift in Sources */,
 				AC2D23EA2167B58100760777 /* Constatnts.swift in Sources */,
 				AC55985B216E27B200C3F10C /* NotificationCell.swift in Sources */,
 				AC2D23D8216779F300760777 /* UIImage+FromURL.swift in Sources */,
@@ -677,7 +695,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC741D5E22A11BCA0012B5D1 /* LogInScreen.swift in Sources */,
+				ACAD7A3822A511F100AFB740 /* HomePage.swift in Sources */,
 				AC741D6B22A148D50012B5D1 /* EditScreen.swift in Sources */,
+				ACAD7A3A22A541AD00AFB740 /* LogInUITests.swift in Sources */,
 				AC741D6822A144C70012B5D1 /* UsersListScreen.swift in Sources */,
 				AC741D6222A13D3A0012B5D1 /* MessengerTabBar.swift in Sources */,
 				ACD8E041229D65C800EFA253 /* TrialTaskUITests.swift in Sources */,

@@ -9,14 +9,16 @@
 import Foundation
 
 class ChatScreen: Screen, MessengerTabBar {
-   
+    
     private let messageTextField = app.textFields["Enter message..."]
     
     private let sendButton = app.buttons["Send"]
     
     private let backButton = app.navigationBars.firstMatch.buttons["Chats"]
     
-    internal override func waitForScreenLoaded() {}
+    internal override func waitForScreenLoaded() {
+        wait(for: messageTextField, .exists)
+    }
     
     public var userName: String {
         return Screen.app.navigationBars.staticTexts.firstMatch.label
@@ -36,6 +38,9 @@ class ChatScreen: Screen, MessengerTabBar {
     }
     
     public func sendMessage(_ message: String) -> Self {
+        messageTextField.tap()
+        messageTextField.typeText("How are you?")
+        sendButton.tap()
         return self
     }
 }

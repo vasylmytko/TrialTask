@@ -17,35 +17,37 @@ class SettingsScreen: Screen, MessengerTabBar {
     
     private let notificationSwitch = app.cells.switches.firstMatch
     
-    internal override func waitForScreenLoaded() {}
+    internal override func waitForScreenLoaded() {
+        wait(for: logOutButton, .exists)
+    }
 
-    func goToEditScreen() -> EditScreen {
+    public func goToEditScreen() -> EditScreen {
         editCell.tap()
         return EditScreen()
     }
     
-    func goToAboutScreen() -> AboutScreen {
+    public func goToAboutScreen() -> AboutScreen {
         aboutCell.tap()
         return AboutScreen()
     }
     
-    func logOut() -> SettingsScreen {
+    public func logOut() -> SettingsScreen {
         logOutButton.tap()
         return SettingsScreen()
     }
     
-    func alertIsShown() -> Bool {
+    public func alertIsShown() -> Bool {
         let alert = Screen.app.alerts.firstMatch.buttons["Log out"]
         return alert.waitForExistence(timeout: 1.5)
     }
     
-    func confirmLogout() -> LogInScreen {
+    public func confirmLogout() -> LogInScreen {
         let button = Screen.app.alerts.firstMatch.buttons["Log out"]
         button.tap()
         return LogInScreen()
     }
     
-    func turnNotificationsOn() -> Self {
+    public func turnNotificationsOn() -> Self {
         notificationSwitch.tap()
         return self
     }

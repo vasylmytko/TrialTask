@@ -24,13 +24,13 @@ extension MessengerTabBar {
     }
     
     @discardableResult
-    func goToSettingsPage() -> SettingsScreen {
+    public func goToSettingsPage() -> SettingsScreen {
         settingsButton.tap()
         return SettingsScreen()
     }
     
     @discardableResult
-    func goToChatPage() -> UsersListScreen {
+    public func goToChatPage() -> UsersListScreen {
         chatButton.tap()
         return UsersListScreen()
     }

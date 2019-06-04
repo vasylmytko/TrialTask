@@ -11,8 +11,11 @@ import XCTest
 class AboutScreen: Screen {
     
     private let closeButton = app.buttons["Close"]
+    private let textView = app.textViews.firstMatch
     
-    internal override func waitForScreenLoaded() {}
+    internal override func waitForScreenLoaded() {
+        wait(for: textView, .exists)
+    }
     
     func closeScreen() -> SettingsScreen {
         closeButton.tap()

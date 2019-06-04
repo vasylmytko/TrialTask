@@ -15,7 +15,9 @@ class EditScreen: Screen {
     private let nameTextField = app.textFields["nameTextField"]
     private let emailTextField = app.textFields["emailTextField"]
     
-    internal override func waitForScreenLoaded() {}
+    internal override func waitForScreenLoaded() {
+        wait(for: userImageView, .exists)
+    }
 
     func closeEditScreen() -> SettingsScreen {
         cancelButton.tap()

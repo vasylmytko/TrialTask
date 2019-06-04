@@ -19,6 +19,8 @@ class SignUpScreen: Screen {
     
     private let signUpButton = app.buttons["Sign up"]
     
-    internal override func waitForScreenLoaded() {}
+    internal override func waitForScreenLoaded() {
+        wait(for: confirmPasswordTextField, .exists)
+    }
     
 }
