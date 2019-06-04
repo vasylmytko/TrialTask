@@ -11,8 +11,7 @@ import CoreData
 
 protocol ChatPresenterDelegate: class {
     func setMessages(_ messages: [MessageData])
-    func messageSent(_ message: MessageData)
-    func receiveMessage(_ message: MessageData)
+    func newMessage(_ message: MessageData)
 }
 
 class ChatPresenter: NSObject {
@@ -66,18 +65,13 @@ class ChatPresenter: NSObject {
         
         fetchedResultsController.delegate = self
     }
-    
-    private func performFetchMessages() {
-        try! fetchedResultsController.performFetch()
-        
-    }
 }
 
 extension ChatPresenter: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        if type == .insert {
-            if let index = indexPath?.item,  let message = fetchedResultsController.fetchedObjects?[index] {
-                delegate?.receiveMessage(message)
+        if type == .insert || type == .update {
+            if let index = newIndexPath?.item,  let message = fetchedResultsController.fetchedObjects?[index] {
+                delegate?.newMessage(message)
             }
         }
     }

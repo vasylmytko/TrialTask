@@ -66,13 +66,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let text = notification.request.content.body
         let userName = notification.request.content.title
         
-        let coreDataStack = CoreDataStack(modelName: "TrialTask")
-        
-        let user = User(from: UserData.userWithName(userName, in: coreDataStack.managedContext)!)
+        let user = User(from: UserData.userWithName(userName, in: CoreDataStack.shared.managedContext)!)
         
         let message = Message(text: text, sender: user, recevier: User.currentUser!, date: Date())
-        
-        MessageData.saveMessage(message, in: coreDataStack.managedContext)
+
+        MessageData.saveMessage(message, in: CoreDataStack.shared.managedContext)
         
         completionHandler([.alert, .sound])
     }

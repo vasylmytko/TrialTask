@@ -12,7 +12,8 @@ import CoreData
 
 public class MessageData: NSManagedObject {
 
-    static func saveMessage(_ message: Message, in context: NSManagedObjectContext) {
+    @discardableResult
+    static func saveMessage(_ message: Message, in context: NSManagedObjectContext) -> MessageData {
         let entity = NSEntityDescription.entity(forEntityName: "Message", in: context)!
         let messageData = MessageData(entity: entity, insertInto: context)
         messageData.date = message.date as NSDate
@@ -29,6 +30,7 @@ public class MessageData: NSManagedObject {
         } catch {
             fatalError("Error occured while saving messages")
         }
+        return messageData
     }
     
     static func fetchMessages(in context: NSManagedObjectContext) -> [Message] {

@@ -52,6 +52,7 @@ class ChatController: UIViewController {
             return
         }
         chatPresenter.sendMessage(draftTextField.text!)
+        draftTextField.text = ""
     }
     
     @objc private func handleKeyboardNotification(_ notification: Notification) {
@@ -113,19 +114,16 @@ extension ChatController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ChatController: ChatPresenterDelegate {
-    func receiveMessage(_ message: MessageData) {
-        self.messageData.append(message)
-        chatCollectionView.reloadData()
-    }
-    
     func setMessages(_ messages: [MessageData]) {
         self.messageData = messages
         chatCollectionView.reloadData()
     }
     
-    func messageSent(_ message: MessageData) {
+    func newMessage(_ message: MessageData) {
         self.messageData.append(message)
+        let indexPath = IndexPath(item: messageData.count - 1, section: 0)
         chatCollectionView.reloadData()
+        chatCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 }
 

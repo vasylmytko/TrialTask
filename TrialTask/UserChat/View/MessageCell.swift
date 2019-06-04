@@ -31,6 +31,7 @@ class MessageCell: UICollectionViewCell {
         textBackgroundView.layer.masksToBounds = true
         
         textBackgroundView.backgroundColor = isIncoming ? UIColor.darkGray : UIColor.lightGray
+        messageTextView.textColor = isIncoming ? .white : .black
         
         if isIncoming {
             messageTrailingAnchor.isActive = false
