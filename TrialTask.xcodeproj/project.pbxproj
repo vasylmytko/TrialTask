@@ -38,6 +38,7 @@
 		AC55985D216E2AE700C3F10C /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC55985C216E2AE700C3F10C /* NotificationManager.swift */; };
 		AC559861216E75CA00C3F10C /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC559860216E75CA00C3F10C /* AboutViewController.swift */; };
 		AC5BE78E229C153C00652EDB /* TrialTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5BE78D229C153C00652EDB /* TrialTaskTests.swift */; };
+		AC5C17E022A94712005CE304 /* MessengerDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5C17DF22A94712005CE304 /* MessengerDataProvider.swift */; };
 		AC741D5C22A11B4D0012B5D1 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC741D5B22A11B4D0012B5D1 /* Screen.swift */; };
 		AC741D5E22A11BCA0012B5D1 /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC741D5D22A11BCA0012B5D1 /* LogInScreen.swift */; };
 		AC741D6022A130240012B5D1 /* AccesibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC741D5F22A130240012B5D1 /* AccesibilityIdentifier.swift */; };
@@ -122,6 +123,7 @@
 		AC5BE78B229C153C00652EDB /* TrialTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrialTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5BE78D229C153C00652EDB /* TrialTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialTaskTests.swift; sourceTree = "<group>"; };
 		AC5BE78F229C153C00652EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC5C17DF22A94712005CE304 /* MessengerDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerDataProvider.swift; sourceTree = "<group>"; };
 		AC741D5B22A11B4D0012B5D1 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		AC741D5D22A11BCA0012B5D1 /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 		AC741D5F22A130240012B5D1 /* AccesibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccesibilityIdentifier.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 		AC2D23D921678E1E00760777 /* UserChat */ = {
 			isa = PBXGroup;
 			children = (
+				AC3939DE22AA644500A6EAFE /* Model */,
 				ACB5863222A6974A002E519B /* Presenter */,
 				AC2D23DF2167B13000760777 /* Controller */,
 				AC2D23DE2167B12B00760777 /* View */,
@@ -282,6 +285,7 @@
 		AC2D23E22167B24100760777 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				ACECCCAA22A7E16B00C7C675 /* Presenter */,
 				AC39880621690B6A0048AFCE /* Controller */,
 				AC39880521690B630048AFCE /* View */,
 			);
@@ -312,6 +316,14 @@
 				AC2926EF2166A35400895EC8 /* Login.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AC3939DE22AA644500A6EAFE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC5C17DF22A94712005CE304 /* MessengerDataProvider.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AC39880521690B630048AFCE /* View */ = {
@@ -444,6 +456,13 @@
 				AC741D6922A1453B0012B5D1 /* Screens */,
 			);
 			path = TrialTaskUITests;
+			sourceTree = "<group>";
+		};
+		ACECCCAA22A7E16B00C7C675 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -669,6 +688,7 @@
 				AC3FFDF3216BEAEF00E39201 /* User+CoreDataProperties.swift in Sources */,
 				AC3FFDF1216BEAEF00E39201 /* Message+CoreDataProperties.swift in Sources */,
 				ACB57D8121696A05001F175C /* SignUpController.swift in Sources */,
+				AC5C17E022A94712005CE304 /* MessengerDataProvider.swift in Sources */,
 				ACB5863422A69768002E519B /* UsersListPresenter.swift in Sources */,
 				AC2D23EA2167B58100760777 /* Constatnts.swift in Sources */,
 				AC55985B216E27B200C3F10C /* NotificationCell.swift in Sources */,

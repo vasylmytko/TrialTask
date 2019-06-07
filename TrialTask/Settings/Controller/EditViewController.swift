@@ -24,6 +24,10 @@ class EditViewController: UIViewController {
     
     var user = User(from: UserDefaults.standard)
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.portrait]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
@@ -33,23 +37,6 @@ class EditViewController: UIViewController {
         imagePicker.toolbar.items?.append(barButton1)
         imagePicker.toolbar.items?.append(barButton2)
         setupUI()
-    }
-    
-    private func setupUI() {
-        userImage.layer.borderColor = UIColor.white.cgColor
-        userImage.layer.borderWidth = 2
-        userImage.layer.cornerRadius = userImage.frame.height / 2
-        userImage.layer.masksToBounds = true
-        
-        imageContentView.layer.cornerRadius = userImage.layer.cornerRadius
-
-        imageContentView.clipsToBounds = true
-        
-        if let image = user?.image {
-            userImage.image = image
-        }
-        nameTxtField.text = user?.name
-        emailTxtField.text = user?.email
     }
     
     @IBAction func cancelBtnPressed(_ sender: UIButton) {
@@ -81,8 +68,21 @@ class EditViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.portrait]
+    private func setupUI() {
+        userImage.layer.borderColor = UIColor.white.cgColor
+        userImage.layer.borderWidth = 2
+        userImage.layer.cornerRadius = userImage.frame.height / 2
+        userImage.layer.masksToBounds = true
+        
+        imageContentView.layer.cornerRadius = userImage.layer.cornerRadius
+        
+        imageContentView.clipsToBounds = true
+        
+        if let image = user?.image {
+            userImage.image = image
+        }
+        nameTxtField.text = user?.name
+        emailTxtField.text = user?.email
     }
 }
 

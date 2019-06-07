@@ -20,59 +20,37 @@ class ChatPresenter: NSObject {
     
     private var fetchedResultsController: NSFetchedResultsController<MessageData>!
     
+    private var dataProvider: DataProvider!
+    
     private var selectedUser: User!
     
-    public init(delegate: ChatPresenterDelegate, user: User) {
+    public init(delegate: ChatPresenterDelegate, selectedUser: User) {
         super.init()
         self.delegate = delegate
-        self.selectedUser = user
-        setupFetchedRC()
+        let messengerDataProvider = MessengerDataProvider()
+        messengerDataProvider.delegate = self
+        self.dataProvider = messengerDataProvider
+        setUser(selectedUser)
     }
     
-    public func fetchMessages() {
-        try! fetchedResultsController.performFetch()
-        if let messages = fetchedResultsController.fetchedObjects {
-            delegate?.setMessages(messages)
-        }
+    public func setUser(_ user: User) {
+        selectedUser = user
+        messages()
     }
     
     public func sendMessage(_ message: String) {
         let messageObject = Message(text: message, sender: User.currentUser!, recevier: selectedUser, date: Date())
-        MessageData.saveMessage(messageObject, in: CoreDataStack.shared.managedContext)
+        dataProvider.sendMessage(messageObject)
     }
     
-    private func setupFetchedRC() {
-        let request: NSFetchRequest<MessageData> = MessageData.fetchRequest()
-        
-        var predicate1 = NSPredicate(format: "%K==%@",
-                                     #keyPath(MessageData.receiver.name), User.currentUser!.name)
-        
-        var predicate2 = NSPredicate(format: "%K==%@", #keyPath(MessageData.receiver.name), selectedUser.name)
-        
-        let compoundPredicate1 = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1, predicate2])
-        
-        predicate1 = NSPredicate(format: "%K==%@", #keyPath(MessageData.sender.name), User.currentUser!.name)
-        predicate2 = NSPredicate(format: "%K==%@", #keyPath(MessageData.sender.name), selectedUser.name)
-        
-        let compoundPredicate2 = NSCompoundPredicate(orPredicateWithSubpredicates: [predicate1, predicate2])
-        
-        let finalPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [compoundPredicate1, compoundPredicate2])
-        
-        request.predicate = finalPredicate
-        request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-        
-        fetchedResultsController = NSFetchedResultsController<MessageData>(fetchRequest: request, managedObjectContext: CoreDataStack.shared.managedContext, sectionNameKeyPath: nil, cacheName: nil)
-        
-        fetchedResultsController.delegate = self
+    public func messages() {
+        let messages = dataProvider.messagesBetween(user1: User.currentUser!, selectedUser)
+        delegate?.setMessages(messages)
     }
 }
 
-extension ChatPresenter: NSFetchedResultsControllerDelegate {
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        if type == .insert || type == .update {
-            if let index = newIndexPath?.item,  let message = fetchedResultsController.fetchedObjects?[index] {
-                delegate?.newMessage(message)
-            }
-        }
+extension ChatPresenter: MessengerDataProviderDelegate {
+    func newMessage(_ message: MessageData) {
+        delegate?.newMessage(message)
     }
 }

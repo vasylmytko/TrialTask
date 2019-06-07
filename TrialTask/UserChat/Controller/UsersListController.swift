@@ -44,7 +44,7 @@ extension UsersListController: UICollectionViewDataSource {
 extension UsersListController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedUser = self.users[indexPath.item]
-        delegate?.userSelecter(selectedUser)
+        delegate?.userSelected(selectedUser)
         
         if let detailVC = delegate as? ChatController {
             let detailNavigationController = detailVC.navigationController
@@ -60,7 +60,7 @@ extension UsersListController: UICollectionViewDelegateFlowLayout {
 }
 
 protocol UserSelectionDelegate: class {
-    func userSelecter(_ user: User)
+    func userSelected(_ user: User)
 }
 
 

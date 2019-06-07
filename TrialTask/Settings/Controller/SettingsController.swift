@@ -22,28 +22,20 @@ class SettingsController: UIViewController {
     lazy var alertController: UIAlertController = {
        let alert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Log out", style: .default, handler: { _ in
-//            if AccessToken.isCurrentAccessTokenActive {
-//                let loginManager = LoginManager()
-//                loginManager.logOut()
-//            }
-            
             let userDefaults = UserDefaults.standard
             userDefaults.set(false, forKey: "isLoggedIn")
-            
             self.performSegue(withIdentifier: "LogInVC", sender: nil)
         }))
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _  in
             alert.dismiss(animated: true, completion: nil)
         }))
-        
         return alert
     }()
     
-    @IBAction func logOutBtnPressed(_ sender: UIButton) {
-        present(alertController, animated: true, completion: nil)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
-   
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let userDefaults = UserDefaults.standard
@@ -70,8 +62,8 @@ class SettingsController: UIViewController {
         userImage.layer.borderColor = UIColor.white.cgColor
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    @IBAction func logOutBtnPressed(_ sender: UIButton) {
+        present(alertController, animated: true, completion: nil)
     }
 }
 

@@ -19,15 +19,13 @@ class ChatController: UIViewController {
     
     var chatPresenter: ChatPresenter!
     
-    var messageData: [MessageData] = []
-    
     var selectedUser: User!
+    
+    var messageData: [MessageData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatPresenter = ChatPresenter(delegate: self, user: selectedUser)
-        
-        chatPresenter.fetchMessages()
+        chatPresenter = ChatPresenter(delegate: self, dataProvider: provider, selectedUser: selectedUser)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -58,7 +56,7 @@ class ChatController: UIViewController {
         if let userInfo = notification.userInfo {
             let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
             
-            let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
+            let isKeyboardShowing = (notification.name == UIResponder.keyboardWillShowNotification)
             
             draftBottomAnchor.constant = isKeyboardShowing ? -keyboardFrame.height + self.view.safeAreaInsets.bottom : 0
             
@@ -109,14 +107,15 @@ extension ChatController: ChatPresenterDelegate {
     
     func newMessage(_ message: MessageData) {
         self.messageData.append(message)
-        let indexPath = IndexPath(item: messageData.count - 1, section: 0)
+        let indexPath = IndexPath(item: self.messageData.count - 1, section: 0)
         chatCollectionView.reloadData()
         chatCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
     }
 }
 
 extension ChatController: UserSelectionDelegate {
-    func userSelecter(_ user: User) {
+    func userSelected(_ user: User) {
         selectedUser = user
+        chatPresenter.setUser(user)
     }
 }
