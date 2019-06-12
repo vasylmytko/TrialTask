@@ -28,9 +28,7 @@ class CustomTabBarControlelr: UITabBarController {
         
         masterVC.delegate = detailVC
         
-        let firstUser = users.first
-        
-        detailVC.selectedUser = firstUser
+        detailVC.selectedUser = user1
         
         tabBar.tintColor = UIColor.white
         tabBar.barTintColor = #colorLiteral(red: 0.1215686275, green: 0.1294117647, blue: 0.1411764706, alpha: 1)

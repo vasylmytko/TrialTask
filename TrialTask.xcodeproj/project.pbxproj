@@ -15,6 +15,7 @@
 		AC2926F32166A35500895EC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2926F22166A35500895EC8 /* Assets.xcassets */; };
 		AC2926F62166A35500895EC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2926F42166A35500895EC8 /* LaunchScreen.storyboard */; };
 		AC2926FE2166AE0400895EC8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2926FD2166AE0400895EC8 /* User.swift */; };
+		AC2A5F4222B0E7210082A6CF /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2A5F4122B0E7210082A6CF /* Defaults.swift */; };
 		AC2D23D8216779F300760777 /* UIImage+FromURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D23D7216779F300760777 /* UIImage+FromURL.swift */; };
 		AC2D23DB21678E6A00760777 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC2D23DA21678E6A00760777 /* Chats.storyboard */; };
 		AC2D23DD216795F400760777 /* UsersListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D23DC216795F400760777 /* UsersListController.swift */; };
@@ -96,6 +97,7 @@
 		AC2926F52166A35500895EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC2926F72166A35500895EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC2926FD2166AE0400895EC8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AC2A5F4122B0E7210082A6CF /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		AC2D23D7216779F300760777 /* UIImage+FromURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FromURL.swift"; sourceTree = "<group>"; };
 		AC2D23DA21678E6A00760777 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		AC2D23DC216795F400760777 /* UsersListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersListController.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				AC2926F42166A35500895EC8 /* LaunchScreen.storyboard */,
 				AC2926F22166A35500895EC8 /* Assets.xcassets */,
 				AC2D23E92167B58100760777 /* Constatnts.swift */,
+				AC2A5F4122B0E7210082A6CF /* Defaults.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				AC3FFDEB216BE94800E39201 /* TrialTask.xcdatamodeld in Sources */,
 				ACB57D7C216952D6001F175C /* SettingsController.swift in Sources */,
 				AC2D23EC2167B64E00760777 /* UserCell.swift in Sources */,
+				AC2A5F4222B0E7210082A6CF /* Defaults.swift in Sources */,
 				AC2D23F02168203E00760777 /* MessageCell.swift in Sources */,
 				ACD6B254216AB9290019D8AB /* UIView+Animation.swift in Sources */,
 				ACB5863622A69BFA002E519B /* ChatPresenter.swift in Sources */,

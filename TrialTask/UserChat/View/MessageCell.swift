@@ -26,6 +26,13 @@ class MessageCell: UICollectionViewCell {
         setupCell()
     }
     
+    func updateCell(messageData: MessageData) {
+        messageTextView.text = messageData.text
+        isIncoming = messageData.receiver!.name == User.currentUser?.name
+        let messageText = messageData.text
+        textViewWidthConstraint.constant = messageText!.estimatedFrame.width + 20
+    }
+    
     func setupCell() {
         textBackgroundView.cornerRadius = 15
         textBackgroundView.layer.masksToBounds = true

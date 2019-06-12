@@ -28,9 +28,6 @@ let user9 = User(name: "user9", email: "user9@gmail.com", image: UIImage(named: 
 
 let user10 = User(name: "user10", email: "user10@gmail.com", image: UIImage(named: "user10"), password: nil)
 
-
-var users: [User] = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10]
-
 var dates: [Date] {
     let calendar = Calendar.current
     var datesArray = Array<Date>()

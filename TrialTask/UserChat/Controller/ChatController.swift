@@ -25,7 +25,8 @@ class ChatController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatPresenter = ChatPresenter(delegate: self, dataProvider: provider, selectedUser: selectedUser)
+        chatPresenter = ChatPresenter(delegate: self, selectedUser: selectedUser)
+        chatPresenter.getChatMessages()
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: UIResponder.keyboardWillShowNotification, object: nil)
         
@@ -73,10 +74,7 @@ class ChatController: UIViewController {
 extension ChatController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "id", for: indexPath) as! MessageCell
-        cell.messageTextView.text = messageData[indexPath.item].text
-        cell.isIncoming = messageData[indexPath.item].receiver!.name == User.currentUser?.name
-        let messageText = messageData[indexPath.item].text
-        cell.textViewWidthConstraint.constant = messageText!.estimatedFrame.width + 20
+        cell.updateCell(messageData: messageData[indexPath.item])
         return cell
     }
     

@@ -18,11 +18,11 @@ class ChatPresenter: NSObject {
     
     private weak var delegate: ChatPresenterDelegate?
     
-    private var fetchedResultsController: NSFetchedResultsController<MessageData>!
-    
     private var dataProvider: DataProvider!
     
     private var selectedUser: User!
+    
+    private var fetchedResultsController: NSFetchedResultsController<MessageData>!
     
     public init(delegate: ChatPresenterDelegate, selectedUser: User) {
         super.init()
@@ -30,12 +30,12 @@ class ChatPresenter: NSObject {
         let messengerDataProvider = MessengerDataProvider()
         messengerDataProvider.delegate = self
         self.dataProvider = messengerDataProvider
-        setUser(selectedUser)
+        self.selectedUser = selectedUser
     }
     
     public func setUser(_ user: User) {
         selectedUser = user
-        messages()
+        getChatMessages()
     }
     
     public func sendMessage(_ message: String) {
@@ -43,7 +43,7 @@ class ChatPresenter: NSObject {
         dataProvider.sendMessage(messageObject)
     }
     
-    public func messages() {
+    public func getChatMessages() {
         let messages = dataProvider.messagesBetween(user1: User.currentUser!, selectedUser)
         delegate?.setMessages(messages)
     }
